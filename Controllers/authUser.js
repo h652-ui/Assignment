@@ -1,4 +1,5 @@
 const userModel = require('../Models/User')
+const productModel = require('../Models/Product')
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
@@ -11,7 +12,11 @@ const authUser = (req, res) => {
     userModel.findOne({ email }).then(async (matchedUser) => {
         if (matchedUser) {
             if(bcrypt.compareSync(pwd, matchedUser.password)){   
-                return res.render('products');
+                productModel.find({user:matchedUser.id}).then(
+                    async (products) => {
+                        return res.render('products', {id : matchedUser.id, products});
+                    }
+                )
             }
             else{
                 return res.status(400).json({ Access: "Denied" });

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box
+    }
+
+    /* Add padding to containers */
+    .container {
+        padding: 16px;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=email],
+    input[type=number],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=number],
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit/register button */
+    .registerbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div style="text-align: center;">
+        <h2>Add Product Form</h2>
+    </div>
+    <form action="/product/create" method="post">
+        <div class="container">
+            <h1>Add Product</h1>
+            <p>Please fill in this form to add a Product.</p>
+            <hr>
+
+            <label for="sku"><b>Product SKU</b></label>
+            <input type="number" placeholder="Enter SKU" name="sku" id="sku" required>
+            
+            <label for="name"><b>Product Name</b></label>
+            <input type="text" placeholder="Enter Name" name="pName" id="name" required>
+
+            <label for="price"><b>Price</b></label>
+            <input type="number" placeholder="Enter Price" name="price" id="price" value="0">
+            <hr>
+
+            <input type="text" name="user_id" id="id" value="<%=id%>" style="display: none;">
+
+            <button type="submit" class="registerbtn">Add Product</button>
+        </div>
+    </form>
+</body>
+
+</html>

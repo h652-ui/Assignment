@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table td {
+            border: 2px solid black;
+            width: 20%;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Congrats</h2>
+    <table>
+        <tr>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <%products.map((value)=> { %>
+            <tr>
+                <td>
+                    <%=value.productSKU%>
+                </td>
+                <td>
+                    <%=value.productName%>
+                </td>
+                <td>
+                    <%=value.price%>
+                </td>
+                <td><a href="/product/deleteproduct/<%=value.id%>">Delete</a></td>
+                <td><a href="">Update</a></td>
+            </tr>
+            <%})%>
+    </table>
+    <hr>
+    <a href="/product/create/<%=id%>"><button>Create Product</button></a>
 </body>
+
 </html>
